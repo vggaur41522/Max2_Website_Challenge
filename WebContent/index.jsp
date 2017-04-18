@@ -79,6 +79,18 @@
    	</div>
     <hr class="light" id="hr1">
     
+    <div class = "headerZone1">
+           <label class="lbl"> PART - III </label>
+    </div>
+    <div class = "headerZone">
+        <button  class="hButn" id="partIIIBtn" value="Lab Test" type="button"><span>PART-III : Deploy Sources on Heroku and Data Capturing.</span></button>
+	</div>
+    <div class = "headerZone1">
+            <div ><label class="lbl" style="color: black; font-size:15px"> Latitude :	</label><input id="lat" type="text" name="lat"></div>
+            <div ><label class="lbl" style="color: black; font-size:15px"> Longitude :	</label><input id="lon"  type="text" name="lon"></div>
+    </div>
+    
+    
     <div id="selectedNode" class="selectedNode">
         <textarea hidden id="targetText" style="width: 90%; height:90%; color: gray"></textarea>
     </div>

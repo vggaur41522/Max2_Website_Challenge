@@ -25,7 +25,7 @@ $(document).ready(function() {
 
     $("#quest4Btn").click(function(){
         $.ajax({
-            url: "http://localhost:8080/Max2WebProject/quest4.html",
+            url: "https://max2webapp.herokuapp.com/quest4.html",
             type: 'get',
             dataType: 'json',
             success: function(data){
@@ -51,7 +51,7 @@ $(document).ready(function() {
     
     $("#quest5Btn").click(function(){
         $.ajax({
-            url: "http://localhost:8080/Max2WebProject/quest5.html",
+            url: "https://max2webapp.herokuapp.com/quest5.html",
             type: 'get',
             dataType: 'json',
             success: function(data){
@@ -79,7 +79,7 @@ $(document).ready(function() {
     
     $("#quest6Btn").click(function(){
         $.ajax({
-            url: "http://localhost:8080/Max2WebProject/quest4.html",
+            url: "https://max2webapp.herokuapp.com/quest4.html",
             type: 'get',
             dataType: 'json',
             success: function(data){
@@ -102,7 +102,7 @@ $(document).ready(function() {
     
     $("#quest7Btn").click(function(){
         $.ajax({
-            url: "http://localhost:8080/Max2WebProject/quest5.html",
+            url: "https://max2webapp.herokuapp.com/quest5.html",
             type: 'get',
             dataType: 'json',
             success: function(data){
