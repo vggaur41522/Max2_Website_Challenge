@@ -40,7 +40,6 @@ $(document).ready(function() {
             	$('#quest4Det').html(rows);
             },
             error: function(data){
-            	alert("data in Error---"+data);
                 console.log(data);
             }
         });
