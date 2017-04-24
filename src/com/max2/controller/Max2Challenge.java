@@ -26,6 +26,8 @@ public class Max2Challenge {
 	// Result creation string
 	static StringBuilder q4 = new StringBuilder();
 	static StringBuilder q5 = new StringBuilder();
+	static StringBuilder initRout1 = new StringBuilder();
+	static StringBuilder initRout2 = new StringBuilder();
 	static 
 	{
 		Max2Challenge ms = new Max2Challenge();
@@ -296,7 +298,8 @@ public class Max2Challenge {
 		 */
 
 		for (Map.Entry<String, Integer> e : partIVMap.entrySet()) {
-			System.out.println(e.getKey() + "\t\t" + e.getValue());
+			System.out.println("Accessed Value: " + e.getKey() + "\t\t" + e.getValue());
+			initRout1.append("Accessed Value: " + e.getKey() + "\t\t" + e.getValue()+ "\n");
 		}
 		System.out.println(" ------------ ");
 
@@ -307,8 +310,21 @@ public class Max2Challenge {
 		 * People ]
 		 */
 		for (Map.Entry<String, ColorTag> e : partVMap.entrySet()) {
-			System.out.println(e.getKey() + "\t\t" + e.getValue().count + "\t\t" + e.getValue().names);
+			System.out.println("Accessed Value: "+ e.getKey() + "\t\t" + e.getValue().count + "\t\t" + e.getValue().names);
+			initRout2.append("Accessed Value: " + e.getKey() + "\t\t" + e.getValue()+ "\n");
 		}
+	}
+	
+	public void printSvc1()
+	{
+		// Logger method to log output when part 4 is called 
+		System.out.println(initRout1.toString());
+	}
+	
+	public void printSvc2()
+	{
+		// Logger method to log output when part 5 is called 
+		System.out.println(initRout2.toString());
 	}
 
 	public void populateJsonStruct() {
@@ -430,7 +446,7 @@ public class Max2Challenge {
 	public @ResponseBody String quest4Process() {
 		System.out.println("[END-POINT]: /quest5 called using POST Method");
 		Max2Challenge res = new Max2Challenge();
-//		res.readContent();
+		printSvc1();
 		String message = res.q4.toString();
 		return message;
 	}
@@ -443,7 +459,7 @@ public class Max2Challenge {
 	public @ResponseBody String quest5Process() {
 		System.out.println("[END-POINT]: /quest5 called using POST Method");
 		Max2Challenge res = new Max2Challenge();
-//		res.readContent();
+		printSvc2();
 		String message = res.q5.toString();
 		return message;
 	}

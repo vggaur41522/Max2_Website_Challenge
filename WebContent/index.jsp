@@ -40,7 +40,7 @@
     <hr class="light" id="hr1">
     
     <div class = "headerZone">
-        <button  class="hButn" id="quest4Btn" value="Lab Test" type="button"><span>Question-4 [Non-JSON]: Print number of People belonging to a COLOR</span></button>
+        <button  class="hButn" id="quest4Btn" value="Lab Test" type="button"><span>Question-4 [Non-JSON]: Print number of People depending upon their COLOR liking</span></button>
 	</div>
     <div id="quest4Det" class="mainDetDiv" style="width: 70%;padding-left: 15px">
    	</div>
@@ -48,20 +48,20 @@
    
     
     <div class = "headerZone">
-        <button  class="hButn" id="quest5Btn" value="Lab Test" type="button"><span>Question-5 [Non-JSON]: Print People belonging to a COLOR</span></button>
+        <button  class="hButn" id="quest5Btn" value="Lab Test" type="button"><span>Question-5 [Non-JSON]: Print People depending upon their COLOR liking</span></button>
 	</div>
     <div id="quest5Det" class="mainDetDiv" style="width: 70%;padding-left: 15px">
    	</div>
     <hr class="light" id="hr1">
     
     <div class = "headerZone">
-        <button  class="hButn" id="quest6Btn" value="Lab Test" type="button"><span>Question-6 [JSON]: Print Number of People belonging to a COLOR</span></button>
+        <button  class="hButn" id="quest6Btn" value="Lab Test" type="button"><span>Question-6 [JSON]: Print Number of People depending upon their COLOR liking</span></button>
 	</div>
     <div id="quest6Det" class="mainDetDiv" style="width: 70%;padding-left: 15px"></div>
     <hr class="light" id="hr1">
     
     <div class = "headerZone">
-        <button  class="hButn" id="quest7Btn" value="Lab Test" type="button"><span>Question-7 [JSON]: Print People belonging to a COLOR</span></button>
+        <button  class="hButn" id="quest7Btn" value="Lab Test" type="button"><span>Question-7 [JSON]: Print People depending upon their COLOR liking</span></button>
 	</div>
     <div id="quest7Det" class="mainDetDiv" style="width: 70%;padding-left: 15px">
    	</div>
