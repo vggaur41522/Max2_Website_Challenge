@@ -1,16 +1,18 @@
 package com.max2.model;
 
+import java.io.Serializable;
+
 /* ***************** QUESTION - 1 *****************
  * This part of code cover the problem statement Question-1: 
  * It is a POJO class corresponding to raw INput Data 
  */
-public class Message {
-	private String firstName;
-	private String lastName;
-	private String address;
-	private String zipCode;
-	private String phoneNo;
-	private String color;
+public class Message implements Serializable  {
+	public String firstName;
+	public String lastName;
+	public String address;
+	public String zipCode;
+	public String phoneNo;
+	public String color;
 	
 	public String getFirstName() {
 		return firstName;

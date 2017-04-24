@@ -1,4 +1,5 @@
 com\max2\model\Message.class
+com\max2\model\Venue.class
 com\max2\controller\Max2Challenge$TAG.class
 com\max2\controller\Max2Challenge$1.class
 com\max2\controller\Max2Challenge$ColorTag.class

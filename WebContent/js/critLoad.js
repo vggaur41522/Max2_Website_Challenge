@@ -1,13 +1,6 @@
-var labCodeArr = [];
-var data2D3 = [];
-var mapAllCode = new Map();
-var symSel = false;
-var labSel = false;
-var ordSel = false;
-var diagSel = false;
-var treatSel = false;
-var visiSel = false;
-
+var partIIPlaces = [];
+var partIIIData = [];
+var baseUrl = "https://max2webapp.herokuapp.com/";//http://localhost:8080/Max2WebProject/
 function onrefresh()
 {
 //    document.getElementById("finSub").disabled = false;
@@ -20,12 +13,10 @@ function throwErrorAlert(mesg)
 }
 
 $(document).ready(function() {
-    var div = document.getElementById('selectedNode');
-    div.style.visibility = "hidden";
-
+	
     $("#quest4Btn").click(function(){
         $.ajax({
-            url: "https://max2webapp.herokuapp.com/quest4.html",
+            url: baseUrl + "quest4.html",
             type: 'get',
             dataType: 'json',
             success: function(data){
@@ -51,7 +42,7 @@ $(document).ready(function() {
     
     $("#quest5Btn").click(function(){
         $.ajax({
-            url: "https://max2webapp.herokuapp.com/quest5.html",
+            url: baseUrl + "quest5.html",
             type: 'get',
             dataType: 'json',
             success: function(data){
@@ -79,7 +70,7 @@ $(document).ready(function() {
     
     $("#quest6Btn").click(function(){
         $.ajax({
-            url: "https://max2webapp.herokuapp.com/quest4.html",
+            url: baseUrl + "quest4.html",
             type: 'get',
             dataType: 'json',
             success: function(data){
@@ -102,7 +93,7 @@ $(document).ready(function() {
     
     $("#quest7Btn").click(function(){
         $.ajax({
-            url: "https://max2webapp.herokuapp.com/quest5.html",
+            url: baseUrl + "quest5.html",
             type: 'get',
             dataType: 'json',
             success: function(data){
@@ -153,9 +144,26 @@ $(document).ready(function() {
             		rows += '<pre style="width:70%">' + data.response.venues[i].name + '</pre>';
             		rows += '</div>';
                     rows += '<br>';
-                    $('#partIIDet').html(rows);
+                    //$('#partIIDet').html(rows);
+                    partIIPlaces[i] = data.response.venues[i].name;
         		}
-
+            	if(partIIPlaces.length > 0)
+        		{
+            		$.ajax({
+            		    type : "POST",
+            		    dataType: 'json',
+            		    url : baseUrl + "partII.html", // Change to Heroku Path !!
+            		    data : {
+            		    	"myArr" : partIIPlaces  
+            		    },
+            		    success : function(response) {
+            		    	$('#partIIDet').html('<pre style="width:70%">'+ JSON.stringify(response, undefined, 2) +'</pre>');
+            		    },
+            		    error : function(e) {
+            		       alert('Error: ' + e);
+            		    }
+            		});
+        		}
             },
             error: function(data){
             	alert("Please provide valid input (lat/lon).. System responded BAD REQUEST");
@@ -168,6 +176,38 @@ $(document).ready(function() {
 
     }); 
     
+    $("#partIIIBtn").click(function(){
+    	if(validateForm() == false)
+    		return false;
+    			
+	    	partIIIData[0] =  $('#fName').val(),
+			partIIIData[1] =  $('#lName').val();
+			partIIIData[2] =  $('#address').val();
+			partIIIData[3] =  $('#zipCode').val();
+			partIIIData[4] =  $('#phone').val();
+			partIIIData[5] =  $('#color').val();
+
+    	$.ajax({
+		    type : "POST",
+		    url : baseUrl + "partIII.html", // Change to Heroku Path !!
+		    data : {
+		    	"myArr" : partIIIData  
+		    },
+		    success : function(response) {
+		       // do something ... 
+		    	$('#partIIIDet').html('<h4 style="width:70%">'+ response +'</h4>');
+		    },
+		    error : function(e) {
+		       alert('Error: ' + e);
+		    }
+		});
+        
+        $('button').removeClass('selected');
+        $(this).addClass('selected');
+
+    }); 
+    
+    
 });
 
 function outputDocument(){
@@ -177,8 +217,34 @@ function outputDocument(){
 
 function validateForm()
 {
-    if( $('#startDate').val().length == 0){
-        alert("Enter Start Date !!");
+    if( $('#fName').val().length == 0){
+        alert("Enter First Name !!");
+        $( "#fName" ).focus();
+        return false;
+    }
+    if( $('#lName').val().length == 0){
+        alert("Enter Last Name !!");
+        $( "#lName" ).focus();
+        return false;
+    }
+    if( $('#address').val().length == 0){
+        alert("Enter Address !!");
+        $( "#address" ).focus();
+        return false;
+    }
+    if( $('#zipCode').val().length == 0){
+        alert("Enter Zip Code !!");
+        $( "#zipCode" ).focus();
+        return false;
+    }
+    if( $('#phone').val().length == 0){
+        alert("Enter Phone Number !!");
+        $( "#phone" ).focus();
+        return false;
+    }
+    if( $('#color').val().length == 0){
+        alert("Enter Color !!");
+        $( "#color" ).focus();
         return false;
     }
 }

@@ -29,9 +29,13 @@
     <div class = "headerZone">
         <button  class="hButn" id="labTest" value="Lab Test" type="button"><span>Question-1, 2 and 3:</span></button>
 	</div>
-    <div id="tagsZone" class="mainDetDiv" style="width: 70%;padding-left: 15px"><p> ** For these question, No User Interaction is required.....</p>
-    	<p> ** System initialization loads the CSV file from resource folder. </p>
+    <div id="tagsZone" class="mainDetDiv" style="width: 70%;padding-left: 15px">
+    	<p> ** For this section (1,2 and 3), No User Interaction is required.....</p>
+    	<p> ** System initialization, loads the CSV file from resource folder. </p>
     	<p> ** Note: Later in Part III, User will get an opportunity to add data to CSV File.</p>
+    	<p><b style="color: red;font-size: 14px"> ** IMP: System checks the input.csv file from Server resource folder : /WebContent/WEB-INF/dataSource/input.csv"</b></p>
+    	<p> ** Since requirement specifications were open, I thought of reading input file from server specific folder would be the best implementation </p>
+    	<p> ** [Second Option]: Other implementation would be to use the Upload File option of HTTP POST method [REST] </p>
    	</div>
     <hr class="light" id="hr1">
     
@@ -75,13 +79,47 @@
     <div class = "headerZone">
         <button  class="hButn" id="partIIBtn" value="Lab Test" type="button"><span>PART-II : Consume 3rd party APIs.</span></button>
 	</div>
+	
     <div id="partIIDet" class="mainDetDiv" style="width: 70%;padding-left: 15px">
    	</div>
     <hr class="light" id="hr1">
     
-    <div id="selectedNode" class="selectedNode">
-        <textarea hidden id="targetText" style="width: 90%; height:90%; color: gray"></textarea>
+    <div>
+    <div class = "headerZone1">
+           <label class="lbl"> PART - III </label>
     </div>
+	<div >
+	    <table  class="tableClass" style="width: 90%">
+	    	<tr >
+	            	<td ><label class="lbl" style="color: black; font-size:15px"> First Name :	</label></td>
+	            	<td ><input id="fName" type="text" name="fName"></td>
+	            	<td ><label class="lbl" style="color: black; font-size:15px"> Last Name :	</label></td>
+	            	<td ><input id="lName" type="text" name="lName"></td>
+	        </tr>
+	        <tr >
+	            	<td ><label class="lbl" style="color: black; font-size:15px"> Address :	</label></td>
+	            	<td ><input id="address" type="text" name="address"></td>
+	            	<td ><label class="lbl" style="color: black; font-size:15px"> Zip Code :	</label></td>
+	            	<td ><input id="zipCode" type="text" name="zipCode"></td>
+	        </tr>
+	        <tr >
+	            	<td ><label class="lbl" style="color: black; font-size:15px"> Phone Number :	</label></td>
+	            	<td ><input id="phone" type="text" name="phone"></td>
+	            	<td ><label class="lbl" style="color: black; font-size:15px"> Color :	</label></td>
+	            	<td ><input id="color" type="text" name="color"></td>
+	        </tr>
+		</table>
+</div>
+<div class = "headerZone1">
+    </div>
+    <div class = "headerZone">
+        <button  class="hButn" id="partIIIBtn" value="Lab Test" type="button"><span>PART-III : Deploy Sources on Heroku and Data Capturing.</span></button>
+	</div>    
+    
+    <div id="partIIIDet" class="mainDetDiv" style="width: 70%;padding-left: 15px">
+   	</div>
+    <hr class="light" id="hr1">
+    
     
 </body>
 </html>
