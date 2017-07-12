@@ -28,6 +28,7 @@ public class Max2Challenge {
 	static StringBuilder q5 = new StringBuilder();
 	static StringBuilder initRout1 = new StringBuilder();
 	static StringBuilder initRout2 = new StringBuilder();
+	
 	static 
 	{
 		Max2Challenge ms = new Max2Challenge();
