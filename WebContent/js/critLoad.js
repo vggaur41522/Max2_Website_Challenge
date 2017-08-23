@@ -1,6 +1,6 @@
 var partIIPlaces = [];
 var partIIIData = [];
-var baseUrl = "http://localhost:8080/Max2WebProject/";//https://max2webapp.herokuapp.com/
+var baseUrl = "https://max2inc-challenge.herokuapp.com/";
 function onrefresh()
 {
 	// document.getElementById("finSub").disabled = false;
