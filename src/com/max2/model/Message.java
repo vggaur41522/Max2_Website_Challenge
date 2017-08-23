@@ -53,5 +53,8 @@ public class Message implements Serializable  {
 	public Message() {
 		// TODO Auto-generated constructor stub
 	}
-
+	public String toString()
+	{
+		return this.firstName + " | " +this.lastName + " | " +this.address + " | " +this.zipCode + " | " +this.phoneNo + " | " +this.color;
+	}
 }

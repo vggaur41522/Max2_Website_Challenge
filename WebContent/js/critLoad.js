@@ -1,10 +1,9 @@
 var partIIPlaces = [];
 var partIIIData = [];
-var baseUrl = "https://max2webapp.herokuapp.com/";//http://localhost:8080/Max2WebProject/
+var baseUrl = "http://localhost:8080/Max2WebProject/";//https://max2webapp.herokuapp.com/
 function onrefresh()
 {
-//    document.getElementById("finSub").disabled = false;
-    
+	// document.getElementById("finSub").disabled = false;
 }
 
 function throwErrorAlert(mesg)
@@ -88,7 +87,6 @@ $(document).ready(function() {
         
         $('button').removeClass('selected');
         $(this).addClass('selected');
-
     }); 
     
     $("#quest7Btn").click(function(){
@@ -117,12 +115,12 @@ $(document).ready(function() {
     $("#partIIBtn").click(function(){
     	if($("#lat").val() == "" || $("#lat").val() == undefined )
 		{
-    		alert("Please enter Latitude within less than 180");
+    		alert("Please enter Latitude less than 180");
     		return false;
 		}
     	if($("#lon").val() == "" || $("#lon").val() == undefined )
 		{
-    		alert("Please enter Latitude within less than 180");
+    		alert("Please enter Longitude less than 180");
     		return false;
 		}
     	var lat = $("#lat").val();
@@ -136,15 +134,20 @@ $(document).ready(function() {
             	var rows = '';
             	if(data.meta.code != "200")
         		{
-            		alert("Please enter valid GEO COORDINATES");
+            		$('#partIIDet').html('<pre style="width:70%"></pre>');
+            		alert("Please enter valid Geo Coordinate !!");
         		}
+            	if(data.response.venues.length == 0)
+            	{
+            		$('#partIIDet').html('<pre style="width:70%"></pre>');
+            		alert("Please enter a valid Geo coordinate !!");
+            	}
             	for(var i in data.response.venues)
         		{
             		rows += '<div id="detailZone" class = "detailPage" style="width: 100%;">';
             		rows += '<pre style="width:70%">' + data.response.venues[i].name + '</pre>';
             		rows += '</div>';
                     rows += '<br>';
-                    //$('#partIIDet').html(rows);
                     partIIPlaces[i] = data.response.venues[i].name;
         		}
             	if(partIIPlaces.length > 0)
@@ -179,14 +182,12 @@ $(document).ready(function() {
     $("#partIIIBtn").click(function(){
     	if(validateForm() == false)
     		return false;
-    			
 	    	partIIIData[0] =  $('#fName').val(),
 			partIIIData[1] =  $('#lName').val();
 			partIIIData[2] =  $('#address').val();
 			partIIIData[3] =  $('#zipCode').val();
 			partIIIData[4] =  $('#phone').val();
 			partIIIData[5] =  $('#color').val();
-
     	$.ajax({
 		    type : "POST",
 		    url : baseUrl + "partIII.html", // Change to Heroku Path !!
@@ -201,6 +202,45 @@ $(document).ready(function() {
 		       alert('Error: ' + e);
 		    }
 		});
+        $('button').removeClass('selected');
+        $(this).addClass('selected');
+    }); 
+    
+    $("#summaryBtn").click(function(){
+    	alert("Summart Button");
+        $.ajax({
+            url: baseUrl + "summary.html",
+            type: 'get',
+            dataType: 'json',
+            success: function(data){
+            	var rows = '<div id="detailZone" class = "detailPage" style="width: 100%;">';
+            	rows += '<button  type="button">Max2 Id</button>';
+            	rows += '<button  type="button">First Name</button>';
+            	rows += '<button  type="button">Last Name</button>';
+            	rows += '<button  type="button">Address</button>';
+            	rows += '<button  type="button">Phone No.</button>';
+            	rows += '<button  type="button">Zip Code</button>';
+            	rows += '<button  type="button">Color</button>';
+            	rows += '</div>';
+                for(var i in data){
+                		rows += '<div id="detailZone" class = "detailPage" style="width: 100%;">';
+                		rows += '<button  id="' +data[i].MaxId+ '" value="fname" type="button">' +data[i].MaxId+ '</button>';
+                		rows += '<button  id="' +data[i].FName+ '" value="fname" type="button">' +data[i].FName+ '</button>';
+                		rows += '<button  id="' +data[i].LName+ '" value="lname" type="button">' +data[i].LName+ '</button>';
+                		rows += '<button  id="' +data[i].Address+ '" value="address" type="button">' +data[i].Address+ '</button>';
+                		rows += '<button  id="' +data[i].PhoneNo+ '" value="phoneNo" type="button">' +data[i].PhoneNo+ '</button>';
+                		rows += '<button  id="' +data[i].ZipCode+ '" value="zipCode" type="button">' +data[i].ZipCode+ '</button>';
+                		rows += '<button  id="' +data[i].Color+ '" value="color" type="button">' +data[i].Color+ '</button>';
+                		rows += '</div>';
+                        rows += '<br>';
+                }  
+                $('#summaryDet').html(rows);
+            },
+            error: function(data){
+            	//alert("data in Error---"+data);
+                console.log(data);
+            }
+        });
         
         $('button').removeClass('selected');
         $(this).addClass('selected');

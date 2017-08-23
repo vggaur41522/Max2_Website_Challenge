@@ -121,5 +121,12 @@
     <hr class="light" id="hr1">
     
     
+    <div class = "headerZone">
+        <button  class="hButn" id="summaryBtn" value="Lab Test" type="button"><span>Summary: Displays current state of Data</span></button>
+	</div>
+    <div id="summaryDet" class="mainDetDiv" style="width: 70%;padding-left: 15px">
+   	</div>
+    <hr class="light" id="hr1">
+    
 </body>
 </html>
